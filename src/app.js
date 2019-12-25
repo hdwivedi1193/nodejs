@@ -12,6 +12,8 @@ const port=process.env.PORT || 3000;
 
  const htmlPath=path.join(__dirname,'../public');
  const partialPath=path.join(__dirname,'../views/partials')
+ const viewPath=path.join(__dirname,'../views')
+
  app.use(express.static(htmlPath))  // This is to setup static directory to serve
  app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({extended: true}));
@@ -34,7 +36,7 @@ const port=process.env.PORT || 3000;
 // to set hbs
 
 
-app.set('views', '../views'); // To customise views directory.Express default look for views directory. You can change path according to your views
+app.set('views', viewPath); // To customise views directory.Express default look for views directory. You can change path according to your views
 app.set('view engine','hbs');// Setting up handle bars
 hbs.registerPartials(partialPath) // THis is to register partials path
 app.get('/',(req,res)=>{
